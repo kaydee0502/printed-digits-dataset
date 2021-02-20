@@ -11,25 +11,43 @@ import requests
 import matplotlib.pyplot as plt
 import numpy as np
 import cv2
-from tkinter import Tk,Canvas
 
-win = Tk() 
-win.geometry("600x400")  
-win.resizable(0, 0)  
-win.title("Scientific Calculator")
+import pickle
 
-im = Image.open(requests.get("https://www.metalevel.at/sudoku/solved.png", stream=True).raw)
+imloc ="https://ars.els-cdn.com/content/image/1-s2.0-S221471601500010X-gr1b.jpg"
+#im = Image.open(requests.get(imloc, stream=True).raw)
+im = cv2.imread("s1.jpg")
 plt.imshow(im)
 
-im = im.resize((252,252))
-
-img = np.array(im)
 
 
-img = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-inv_img = 255 - img
-#plt.imshow(inv_im)
+#im = im.resize((252,252))
+
+img = im
+
+try:
+    img = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+    inv_img = 255 - img
+    #plt.imshow(inv_im)
+   
+except:
+    print("Error, trying other way1")
+    plt.imshow(img)
+    plt.show()
+    im.show()
+    ret,inv_img = cv2.threshold(img,1,255,cv2.THRESH_BINARY)
+    
+
+    
+
+
+       
+
+
+
 cells = []
+run = False
+
 
 for r in range(0,252,28):
     for c in range(0,252,28):
@@ -38,7 +56,11 @@ for r in range(0,252,28):
         pad[2:26][:,2:26] = im[2:26][:,2:26]
         im = pad.copy()
         centroid = pad[5:20][:,5:20]
-        plt.imshow(pad)
+        if run:
+            
+            plt.imshow(pad)
+            plt.show()
+        
         
             
         plt.title(sum(centroid.ravel()))
@@ -59,15 +81,28 @@ for r in range(0,252,28):
         #plt.imshow(im)
         cells.append(im)
        
+        
+mark = {x:False for x in range(1,10)}
+with open('counter.pickle', 'rb') as f:
+    counter = pickle.load(f)
 
-        plt.show()
+for i in cells:
+    if all(mark.values()):
+        break
+    plt.imshow(i)
+    plt.show()
+    dirpath = input()
+    if mark[int(dirpath)]:
+        continue
+    fpath = "assets/"+dirpath+"/"+dirpath
+    cv2.imwrite(fpath+str(counter[int(dirpath)])+'.jpeg',i)
+    counter[int(dirpath)]+=1
+    mark[int(dirpath)] = True
+    
 
+with open("counter.pickle", 'wb') as f:
+    pickle.dump(counter, f)
 
-
-img =  ImageTk.PhotoImage(image=Image.fromarray(cells[0]))
-canvas = Canvas(win,width=300,height=300)
-canvas.pack()
-canvas.create_image(20,20, anchor="nw", image=img)
 
     
 
