@@ -16,14 +16,15 @@ import pickle
 
 imloc ="https://ars.els-cdn.com/content/image/1-s2.0-S221471601500010X-gr1b.jpg"
 #im = Image.open(requests.get(imloc, stream=True).raw)
-im = cv2.imread("s1.jpg")
-plt.imshow(im)
+img = cv2.imread("s1.jpg")
+img = cv2.resize(img,(252,252))
+plt.imshow(img)
 
 
 
 #im = im.resize((252,252))
 
-img = im
+
 
 try:
     img = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
@@ -34,7 +35,7 @@ except:
     print("Error, trying other way1")
     plt.imshow(img)
     plt.show()
-    im.show()
+    
     ret,inv_img = cv2.threshold(img,1,255,cv2.THRESH_BINARY)
     
 
