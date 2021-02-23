@@ -14,6 +14,14 @@ import cv2
 
 import pickle
 
+def removeNoise(img):
+    r,mask = cv2.threshold(img,10,255,cv2.THRESH_BINARY)
+    eout = cv2.bitwise_and(mask,img)
+    return eout
+
+
+
+
 imloc ="https://ars.els-cdn.com/content/image/1-s2.0-S221471601500010X-gr1b.jpg"
 #im = Image.open(requests.get(imloc, stream=True).raw)
 img = cv2.imread("s1.jpg")
@@ -80,6 +88,7 @@ for r in range(0,252,28):
         cv2.fillPoly(t2, pts =[maxc], color=255)
         im = cv2.bitwise_and(t,t2)
         #plt.imshow(im)
+        im = removeNoise(im)
         cells.append(im)
        
         
