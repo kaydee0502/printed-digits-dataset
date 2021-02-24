@@ -47,11 +47,6 @@ except:
     ret,inv_img = cv2.threshold(img,1,255,cv2.THRESH_BINARY)
     
 
-    
-
-
-       
-
 
 
 cells = []
