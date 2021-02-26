@@ -24,7 +24,7 @@ def removeNoise(img):
 
 imloc ="https://ars.els-cdn.com/content/image/1-s2.0-S221471601500010X-gr1b.jpg"
 #im = Image.open(requests.get(imloc, stream=True).raw)
-img = cv2.imread("s1.jpg")
+img = cv2.imread("s31.png")
 img = cv2.resize(img,(252,252))
 plt.imshow(img)
 
