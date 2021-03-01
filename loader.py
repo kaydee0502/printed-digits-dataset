@@ -24,7 +24,7 @@ def removeNoise(img):
 
 imloc ="https://ars.els-cdn.com/content/image/1-s2.0-S221471601500010X-gr1b.jpg"
 #im = Image.open(requests.get(imloc, stream=True).raw)
-img = cv2.imread("s31.png")
+img = cv2.imread("s4.png")
 img = cv2.resize(img,(252,252))
 plt.imshow(img)
 
@@ -87,7 +87,8 @@ for r in range(0,252,28):
         cells.append(im)
        
         
-mark = {x:False for x in range(1,10)}
+mark = {x:False for x in range(1,11)}
+mark[10] = True
 with open('counter.pickle', 'rb') as f:
     counter = pickle.load(f)
 

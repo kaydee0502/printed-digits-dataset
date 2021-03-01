@@ -6,14 +6,13 @@ Created on Thu Feb 18 21:39:44 2021
 @author: kaydee
 """
 import pickle
-counter = {x:0 for x in range(0,10)}
-
-
-
-
+with open('counter.pickle', 'rb') as f:
+    counter = pickle.load(f)
+    
+counter[10] = 0
 
 with open("counter.pickle", 'wb') as f:
     pickle.dump(counter, f)
-    
+
     
     
