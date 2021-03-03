@@ -24,7 +24,7 @@ def removeNoise(img):
 
 imloc ="https://ars.els-cdn.com/content/image/1-s2.0-S221471601500010X-gr1b.jpg"
 #im = Image.open(requests.get(imloc, stream=True).raw)
-img = cv2.imread("s9.png")
+img = cv2.imread("s15.png")
 img = cv2.resize(img,(252,252))
 plt.imshow(img)
 
@@ -74,7 +74,11 @@ for r in range(0,252,28):
         
         t = im.copy()
         t2 = im.copy() * 0
-        maxc = max(contours, key = cv2.contourArea)
+        try:
+            maxc = max(contours, key = cv2.contourArea)
+        except:
+            pass
+        
         
         cv2.drawContours(t2, [maxc], -1, 255, 2)
 
