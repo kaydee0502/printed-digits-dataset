@@ -1,1 +1,10 @@
-*.ipynb
+/*.ipynb
+/*.png
+/*.jpeg
+/*.jpg
+/*.pickle
+/*.py
+!loader.py
+/aug_preview
+/__pycache__
+/health*
