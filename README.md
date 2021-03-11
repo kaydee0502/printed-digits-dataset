@@ -24,3 +24,16 @@ Contains around 3000 images of digitally printed numeric dataset. Each image is 
 
 
 
+<div id="banner">
+<div class="inline-block">
+<img src="https://github.com/kaydee0502/printed-digits-dataset/blob/master/assets/4/0_0_179.jpeg" width="100" height="100" />
+</div>
+
+<div class="inline-block">
+<img src="https://github.com/kaydee0502/printed-digits-dataset/blob/master/assets/2/0_0_2505.jpeg" width="100" height="100" />
+</div>
+
+<div class="inline-block">
+<img src="https://github.com/kaydee0502/printed-digits-dataset/blob/master/assets/9/0_0_9281.jpeg" width="100" height="100" />
+</div>
+</div>
