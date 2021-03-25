@@ -25,7 +25,7 @@ This dataset originally had 177 images, afterwards augmentation was performed.
 
 
 ## Contribute:
-We still required more data, apart from that images of digit `0` is needed, PRs are most welcome and appreciated..
+We still required more data, apart from that images of digit `0` is needed, Pull Requests are most welcome and appreciated..
 
 ## License:
 
