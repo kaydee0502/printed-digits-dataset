@@ -15,7 +15,7 @@ import cv2
 import pickle
 
 def removeNoise(img):
-    r,mask = cv2.threshold(img,10,255,cv2.THRESH_BINARY)
+    r,mask = cv2.threshold(img,150,255,cv2.THRESH_BINARY)
     eout = cv2.bitwise_and(mask,img)
     return eout
 
@@ -24,7 +24,7 @@ def removeNoise(img):
 
 imloc ="https://ars.els-cdn.com/content/image/1-s2.0-S221471601500010X-gr1b.jpg"
 #im = Image.open(requests.get(imloc, stream=True).raw)
-img = cv2.imread("s15.png")
+img = cv2.imread("edited_S5.jpeg")
 img = cv2.resize(img,(252,252))
 plt.imshow(img)
 
@@ -104,7 +104,7 @@ for i in cells:
     dirpath = input()
     if mark[int(dirpath)]:
         continue
-    fpath = "assets/"+dirpath+"/"+dirpath
+    fpath = "assets_1/"+dirpath+"/"+dirpath
     cv2.imwrite(fpath+str(counter[int(dirpath)])+'.jpeg',i)
     counter[int(dirpath)]+=1
     mark[int(dirpath)] = True
