@@ -1,7 +1,7 @@
 
 # Printed Numerical Digits Image Dataset.
 
-## Version : v0.01 Beta
+## Version : v0.1 Beta
 
 Contains around 3000 images of digitally printed numeric dataset.
 
